@@ -7,18 +7,106 @@
 body {
     width: 100%;
     display: flex;
-    justify-content: center;
+    flex-flow: column nowrap;
+    text-align: center;
+    background: #121212;
+    color: aliceblue;
 }
 
-header {
-    
+main {
+    width: 100vw;
+    height: auto;
+}
+
+header, footer {
+}
+
+ul {
 }
 
 ul li {
-    list-style: none;
+    position: relative;
+    background: rgb(236, 236, 236);
+    padding: 10px 0 10px 0;
+    color: #121212;
 
+    transition: 0.3s;
+
+    list-style: none;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+}
+
+ul li:nth-child(odd) {
+    background: rgb(175, 175, 175);
+}
+
+ul li:hover {
+    background: white;
+}
+
+ul li.checked {
+    background: #747474;
+    color: #b1b1b1;
+    text-decoration: line-through;
+}
+
+ul li.checked::before {
+    content: "";
+    position: absolute;
+    border: 0 2px 2px 0 solid #fff;
+    top: 10px;
+    left: 16px;
+    transform: rotate(45deg);
+    height: 15px;
+    width: 7px;
+}
+
+#textAddBox {
+    width: 90%;
+    display: flex;
+    flex-flow: row nowrap;
+    margin: auto auto 5px auto;
+}
+#textList {
+    width: 90%;
+    display: flex;
+    flex-flow: column nowrap;
+    margin: auto;
+}
+
+#addList {
+    width: 75%;
+    border: none;
+    padding: 10px 0 10px 0;
+    text-align: center;
+    transition: .3s;
+}
+
+#btnAddList {
+    width: 25%;
+    border: none;
+    background: #d4d4d4;
+    transform: scale(1);
+    transition: .3s;
+}
+
+#btnAddList:hover {
+    background: rgb(163, 255, 255);
+    transform: scale(1.05);
+    transition: .3s;
+}
+
+.far {
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 12px 16px 12px 16px;
+}
+
+.far:hover {
+    background: tomato;
+    color: white;
 }
