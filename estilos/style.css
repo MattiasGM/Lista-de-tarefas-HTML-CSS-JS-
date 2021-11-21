@@ -13,17 +13,6 @@ body {
     color: aliceblue;
 }
 
-main {
-    width: 100vw;
-    height: auto;
-}
-
-header, footer {
-}
-
-ul {
-}
-
 ul li {
     position: relative;
     background: rgb(236, 236, 236);
@@ -31,6 +20,7 @@ ul li {
     color: #121212;
 
     transition: 0.3s;
+    transform: scale(1);
 
     list-style: none;
     -webkit-user-select: none;
@@ -45,6 +35,8 @@ ul li:nth-child(odd) {
 
 ul li:hover {
     background: white;
+    transform: scale(1.1);
+    transition: .3s;
 }
 
 ul li.checked {
