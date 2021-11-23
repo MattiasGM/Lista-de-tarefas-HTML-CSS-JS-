@@ -10,16 +10,25 @@ function addList() {
     if(addTarefa.length == 0) {
         alert('[ERRO] Caixa Vazia')
     } else {
-        todoObjetctList.push(addTarefa)
 
-        let tarefa = document.createElement('li')
-        let delBtn = document.createElement('i')
+            todoObjetctList.push(addTarefa)
 
-        delBtn.classList.add("far", "fa-trash-alt")
+            let tarefa = document.createElement('li')
+            let delBtn = document.createElement('i')
 
-        tarefa.innerText = `${addTarefa}`
+            delBtn.classList.add("far", "fa-trash-alt")
+            delBtn.setAttribute('data-id', objectList.id)
 
-        tarefa.appendChild(delBtn)
-        lista.appendChild(tarefa)
+            tarefa.innerText = `${addTarefa}`
+            tarefa.setAttribute('data-id', objectList.id)
+
+            tarefa.appendChild(delBtn)
+            lista.appendChild(tarefa)
+
+            delBtn.addEventListener('click', function(e) {
+                let delItem = e.target.getAttribute('data-id')
+                lista.deleteElement(delItem)
+            })
+
     }
 }
