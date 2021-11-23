@@ -4,31 +4,44 @@ let lista = document.querySelector('ul#lista')
 
 let todoObjetctList = []
 
-function addList() {
+function addList() { //Adicionar tarefa à Lista
     let addTarefa = document.querySelector('input#addList').value
 
     if(addTarefa.length == 0) {
         alert('[ERRO] Caixa Vazia')
+    } else if (inList(addTarefa, todoObjetctList)) {
+        alert('[ERRO] Tarefa já Adicionada')
     } else {
-
             todoObjetctList.push(addTarefa)
 
             let tarefa = document.createElement('li')
             let delBtn = document.createElement('i')
 
             delBtn.classList.add("far", "fa-trash-alt")
-            delBtn.setAttribute('data-id', objectList.id)
 
             tarefa.innerText = `${addTarefa}`
-            tarefa.setAttribute('data-id', objectList.id)
 
             tarefa.appendChild(delBtn)
             lista.appendChild(tarefa)
 
-            delBtn.addEventListener('click', function(e) {
-                let delItem = e.target.getAttribute('data-id')
-                lista.deleteElement(delItem)
+    //------------------ REMOVER DA LISTA -----------------\\
+            delBtn.addEventListener('click', function() {
+                tarefa.remove()
+                todoObjetctList.splice(todoObjetctList.indexOf(tarefa), 1)
             })
-
+    
+    //-------------- MARCAR CHECKED-CHECKOUT --------------\\
+            tarefa.addEventListener('click', function() {
+                if(tarefa.className == 'checked') {
+                    tarefa.className = 'none'
+                } else {
+                    tarefa.classList.add('checked')
+                    tarefa.className = 'checked'
+                }
+            })
     }
+}
+
+function inList(t,l) {
+    return l.indexOf(t) != -1 ? true : false
 }
