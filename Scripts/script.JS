@@ -33,10 +33,9 @@ function addList() { //Adicionar tarefa à Lista
     //-------------- MARCAR CHECKED-CHECKOUT --------------\\
             tarefa.addEventListener('click', function() {
                 if(tarefa.className == 'checked') {
-                    tarefa.className = 'none'
+                    tarefa.removeAttribute('class')
                 } else {
-                    tarefa.classList.add('checked')
-                    tarefa.className = 'checked'
+                    tarefa.setAttribute('class', 'checked')
                 }
             })
     }
